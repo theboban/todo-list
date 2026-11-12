@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f5ee">
+  <meta name="description" content="Добавляйте задачи и отмечайте выполненное. Список сохраняется в браузере.">
+  <title>Список задач</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="planner">
+    <header class="hero">
+      <h1>Список задач</h1>
+      <div class="progress">
+        <label for="progress">Выполнено <span id="count">0 из 0</span></label>
+        <progress id="progress" value="0" max="1"></progress>
+      </div>
+    </header>
+
+    <section class="board" aria-labelledby="tasks-heading">
+      <h2 id="tasks-heading">Мои задачи</h2>
+      <form id="task-form">
+        <label class="sr-only" for="task-input">Название задачи</label>
+        <input id="task-input" placeholder="Что нужно сделать?" maxlength="180" required>
+        <button class="add" type="submit">Добавить</button>
+      </form>
+      <p id="notice" role="status" hidden></p>
+      <ul id="tasks" aria-label="Задачи"></ul>
+      <p id="empty">Здесь появятся ваши задачи.</p>
+    </section>
+    <footer>Задачи сохраняются в этом браузере.</footer>
+  </main>
+
+  <template id="task-template">
+    <li class="task">
+      <label><input type="checkbox"><span></span></label>
+      <button class="delete" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3m3 0-1 13H7L6 7m4 4v5m4-5v5"/></svg>
+      </button>
+    </li>
+  </template>
+</body>
+</html>
